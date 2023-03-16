@@ -8,6 +8,7 @@ var app = builder.Build();
 
 app.MapGet("/{*requestPath}", (HttpRequest request) =>
 {
+    app.Logger.LogInformation($"received request for {request.Path}");
     return new
     {
         method = request.Method,
